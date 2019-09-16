@@ -1,0 +1,98 @@
+SystemName     cnt-arm-relax
+SystemLabel    cnt-arm-relax 
+NumberOfAtoms   20
+NumberOfSpecies  1
+
+%block ChemicalSpeciesLabel
+ 1    6  C
+%endblock ChemicalSpeciesLabel
+
+LatticeConstant   1.000 Ang 
+
+%block LatticeVectors 
+    20.00000000000000000    0.0000000000000000    0.0000000000000000
+     0.00000000000000000   20.0000000000000000    0.0000000000000000
+     0.00000000000000000    0.0000000000000000    2.478
+%endblock LatticeVectors
+
+%block kgrid_Monkhorst_Pack
+ 1   0   0     0.0
+ 0   1   0     0.0
+ 0   0   18    0.0
+%endblock kgrid_Monkhorst_Pack
+
+AtomicCoordinatesFormat Ang
+AtomCoorFormatOut  Ang
+
+%block AtomicCoordinatesAndAtomicSpecies
+ 13.48410000   9.35020000   0.15530000        1
+ 13.45030000  10.79550000   0.15550000        1
+ 11.67580000  12.99370000   0.15510000        1
+ 10.29100000  13.39980000   0.15460000        1
+  7.60620000  12.50710000   0.15470000        1
+  6.74580000  11.34880000   0.15550000        1
+  6.81280000   8.53420000   0.15630000        1
+  7.72550000   7.41640000   0.15640000        1
+ 10.44250000   6.62170000   0.15630000        1
+ 11.81210000   7.07610000   0.15660000        1
+ 13.19270000  11.47450000   1.40240000        1
+ 12.28200000  12.59380000   1.40220000        1
+  9.56480000  13.38700000   1.40160000        1
+  8.19580000  12.93090000   1.40160000        1
+  6.52060000  10.65860000   1.40270000        1
+  6.55410000   9.21310000   1.40320000        1
+  8.33180000   7.01680000   1.40340000        1
+  9.71610000   6.60940000   1.40330000        1
+ 12.40200000   7.49930000   1.40350000        1
+ 13.26040000   8.65930000   1.40250000        1
+%endblock AtomicCoordinatesAndAtomicSpecies
+
+
+#%block GeometryConstraints
+#position from  1 to  180
+#%endblock GeometryConstraints
+
+PAO.BasisSize     DZP
+PAO.EnergyShift   0.03 eV
+MD.TypeOfRun      CG
+MaxSCFIterations  150
+MD.NumCGsteps     500
+MD.MaxForceTol    0.005  eV/Ang
+MeshCutoff        300   Ry
+DM.MixingWeight   0.02
+DM.NumberPulay   3
+WriteCoorXmol   .true.
+WriteMullikenPop    1
+XC.functional       LDA
+XC.authors          CA
+SolutionMethod  diagon
+ElectronicTemperature  50 meV
+SaveRho        .true.
+#ParallelOverK         .true.
+
+#======== Write ============
+
+WriteMullikenPop                1
+#WriteBands                      .false.
+SaveRho                         T
+SaveDeltaRho                    T
+#SaveHS                          .false.
+#SaveElectrostaticPotential      .false.
+#SaveTotalPotential              no
+WriteCoorXmol                   .true.
+WriteMDXmol                     .true.
+#WriteMDhistory                  .false.
+WriteEigenvalues                yes
+
+#========= Reestart the calculation ===============
+# XV - coordinates
+# DM - density matrix
+# CG - last conjugated gradient step
+#==================================================
+UseSaveData           .true.
+MD.UseSaveXV          .true.
+DM.UseSaveDM          .true.
+MD.UseSaveCG          .true.
+
+
+
