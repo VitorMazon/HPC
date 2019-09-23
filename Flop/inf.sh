@@ -3,7 +3,7 @@
 rm flop
 rm mflops.dat
 
-gcc 1_flop.c -o flop
+gcc 1_flop.c -lm -o flop
 
 for i in $(seq 1 10 10000); do
  	./flop $i >> mflops.dat

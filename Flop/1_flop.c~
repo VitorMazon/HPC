@@ -4,14 +4,14 @@
 #include <math.h>
 
 void main(int argc, char **argv) {
-	int i, j, R=10000;
+	int i, j, R=100;
 	long int N;
 	double *a, *b, *c, *d;
 	double mflops;
 	clock_t t;
 	
 	//Alocando dinamicamente
-	N=(long int)atoi(argv[1]);
+	N=atoi(argv[1]);
 	a=(double*)malloc(N*sizeof(double));
 	b=(double*)malloc(N*sizeof(double));
 	c=(double*)malloc(N*sizeof(double));
