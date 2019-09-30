@@ -4,7 +4,7 @@
 #include <math.h>
 
 void main(int argc, char **argv) {
-	int i, j, R=10000;
+	int i, j, R=1000;
 	long int N;
 	double *a, *b, *c, *d;
 	double mflops;
@@ -19,20 +19,20 @@ void main(int argc, char **argv) {
 	
 	//Inicializando variaveis
 	for(i=0;i<N;i++) {
-		a[i]=0.; b[i]=1.; c[i]=2; d[i]=3.;
+		a[i]=0.; b[i]=1.; c[i]=2.; d[i]=3.;
 	}
 
 	//Contando clocks
 	t=clock();
-	for(j=0;j<R;j++) {
-		for(i=0;i<N;i++) {
+	
+	for(j=0;j<R;j++)
+		for(i=0;i<N;i++)
 			a[i]=b[i]+c[i]*d[i];
-		}
-	}
+	
 	t=clock()-t;
 	
 	//Calculando flops do sistema
-	mflops=fabs((R*N*2.)/(((double)t*1e6)/((double)CLOCKS_PER_SEC)));
+	mflops=fabs((double)(R*N*2.)/(1e6*((double)t/(double)CLOCKS_PER_SEC)));
 	printf("%ld  %lf\n", N, mflops);
 	
 	free(a);
