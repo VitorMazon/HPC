@@ -92,17 +92,19 @@ int main(int argc, char **argv) {
 	double **L, err, xi, xf, yi, yf;
 	clock_t begin = clock();
 	
-	//Dominio
+	//Dominio e grade
 	xi=0;
-	xf=1;
+	xf=2;
 	yi=0;
 	yf=2;
-	x_grad=302;
+	x_grad=602;
+	y_grad=602;
 	
-	err=atof(argv[1]);
-	idim=x_grad*(yf-yi);
+	err=1e-2;	//atof(argv[1]);
+	idim=y_grad*(yf-yi);
 	jdim=x_grad*(xf-xi);
 	
+	//Inicializa matriz
 	L=malloc(idim*sizeof(double *));
 	for(i=0; i<idim; i++)
 		L[i]=(double *)malloc(jdim*sizeof(double *));
