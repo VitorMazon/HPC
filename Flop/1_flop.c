@@ -12,7 +12,7 @@ void main(int argc, char **argv) {
 	
 	//Alocando dinamicamente
 	N=(long int)atoi(argv[1]);
-	a=(double*)malloc(N*sizeof(double));
+	a=(double*)malloc(N*sizeof(doublse));
 	b=(double*)malloc(N*sizeof(double));
 	c=(double*)malloc(N*sizeof(double));
 	d=(double*)malloc(N*sizeof(double));
@@ -32,7 +32,7 @@ void main(int argc, char **argv) {
 	t=clock()-t;
 	
 	//Calculando flops do sistema
-	mflops=fabs((double)(R*N*2.)/(1e6*((double)t/(double)CLOCKS_PER_SEC)));
+	mflops=fabs((double)(R*N*2.)/((double)(t*1e6)));
 	printf("%ld  %lf\n", N, mflops);
 	
 	free(a);

@@ -51,9 +51,9 @@ ZM.UnitsLength Ang
 ZM.UnitsAngle deg
 
 MD.TypeOfRun CG
-MD.NumCGsteps 4
+MD.NumCGsteps 20
 
-MeshCutoff 120 Ry
+MeshCutoff 420 Ry
 PAO.EnergyShift 0.01 Ry
 DM.NumberPulay 5
 DM.MixingWeight 0.3
