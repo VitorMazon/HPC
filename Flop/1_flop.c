@@ -3,8 +3,18 @@
 #include <time.h>
 #include <math.h>
 
+void calc(int R, int N, double a[], double b[], double c[], double d[]) {
+	int i, j;
+	
+	for(j=0;j<R;j++)
+		for(i=0;i<N;i++)
+			a[i]=b[i]+c[i]*d[i];
+		
+	return;
+}
+
 void main(int argc, char **argv) {
-	int i, j, R=1000;
+	int i, R=100;
 	long int N;
 	double *a, *b, *c, *d;
 	double mflops;
@@ -12,7 +22,7 @@ void main(int argc, char **argv) {
 	
 	//Alocando dinamicamente
 	N=(long int)atoi(argv[1]);
-	a=(double*)malloc(N*sizeof(doublse));
+	a=(double*)malloc(N*sizeof(double));
 	b=(double*)malloc(N*sizeof(double));
 	c=(double*)malloc(N*sizeof(double));
 	d=(double*)malloc(N*sizeof(double));
@@ -24,15 +34,11 @@ void main(int argc, char **argv) {
 
 	//Contando clocks
 	t=clock();
-	
-	for(j=0;j<R;j++)
-		for(i=0;i<N;i++)
-			a[i]=b[i]+c[i]*d[i];
-	
+	calc(R, N, a, b, c, d);
 	t=clock()-t;
 	
 	//Calculando flops do sistema
-	mflops=fabs((double)(R*N*2.)/((double)(t*1e6)));
+	mflops=(double)(R*N*2.)/((double)(t*1e6));
 	printf("%ld  %lf\n", N, mflops);
 	
 	free(a);
