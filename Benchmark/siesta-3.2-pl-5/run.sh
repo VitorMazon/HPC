@@ -20,7 +20,12 @@ chmod +x temp.sh
 sh temp.sh
 rm temp.sh
 
-sed "s/COMP/intel-mkl/g" mk-data.sh > temp.sh
+sed "s/COMP/intel-auto/g" mk-data.sh > temp.sh
+chmod +x temp.sh
+sh temp.sh
+rm temp.sh
+
+sed "s/COMP/intel-flags/g" mk-data.sh > temp.sh
 chmod +x temp.sh
 sh temp.sh
 rm temp.sh

@@ -16,7 +16,7 @@ FC=gfortran
 #
 FC_ASIS=$(FC)
 #
-FFLAGS= XYX
+FFLAGS= XYX -xAVX -fexpensive-optimizations -m64 -foptimize-register-move -funroll-loops -ffast-math #-mavx -mtune=corei7-avx
 FFLAGS_DEBUG= -g -Wall -Wextra
 LDFLAGS=
 RANLIB=echo

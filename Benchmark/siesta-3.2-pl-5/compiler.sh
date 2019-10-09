@@ -92,20 +92,38 @@ cd Obj-intel
  done
 cd ..
 
-#============INTEL COM FLAGS E MKL===================
+#============INTEL COM FLAGS AUTOMÁTICAS===================
 
-mkdir Obj-intel-mkl
-cd Obj-intel-mkl
+mkdir Obj-intel-auto
+cd Obj-intel-auto
  sh ../Src/obj_setup.sh
- cp ../Basis/intel-mkl.make .
+ cp ../Basis/intel-auto.make .
  
  for i in 0 1 2 3
   do
-   sed "s/ XYX/ -O$i/g" intel-mkl.make > arch.make
+   sed "s/ XYX/ -O$i/g" intel-auto.make > arch.make
    make
-   cp siesta siesta-intel-mkl-$i.x
-   mv siesta-intel-mkl-$i.x ~/bin
+   cp siesta siesta-intel-auto-$i.x
+   mv siesta-intel-auto-$i.x ~/bin
    make clean
-   mv arch.make arch-intel-mkl-$i
+   mv arch.make arch-intel-auto-$i
+ done
+cd ..
+
+#============INTEL COM FLAGS ===================
+
+mkdir Obj-intel-flags
+cd Obj-intel-flags
+ sh ../Src/obj_setup.sh
+ cp ../Basis/intel-flags.make .
+ 
+ for i in 0 1 2 3
+  do
+   sed "s/ XYX/ -O$i/g" intel-flags.make > arch.make
+   make
+   cp siesta siesta-intel-flags-$i.x
+   mv siesta-intel-flags-$i.x ~/bin
+   make clean
+   mv arch.make arch-intel-flags-$i
  done
 cd ..

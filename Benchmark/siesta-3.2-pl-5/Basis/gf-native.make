@@ -16,7 +16,7 @@ FC=gfortran
 #
 FC_ASIS=$(FC)
 #
-FFLAGS= XYX
+FFLAGS= XYX -mtune=native -fexpensive-optimizations -m64 -foptimize-register-move -funroll-loops -ffast-math #-mavx
 FFLAGS_DEBUG= -g -Wall -Wextra
 LDFLAGS=
 RANLIB=echo
