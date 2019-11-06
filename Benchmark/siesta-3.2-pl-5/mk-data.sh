@@ -8,7 +8,7 @@
 cd Obj-COMP/Tests/benzene/
 make
 cd work
-cp ../../../../Tests/benzene/work/benzene.fdf .
+cp ../../../../Tests/benzene/benzene.fdf .
 
 for i in 0 1 2 3
  do
