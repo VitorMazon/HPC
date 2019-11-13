@@ -1,6 +1,11 @@
-#set terminal pdf enhanced font "Times New Roman"
-#set output "Saida.pdf"
-set pm3d
-#set xrange [0:21]
-#set size square
-splot "saida.dat" matrix
+set terminal png enhanced font "Times New Roman"
+set pm3d map
+set size square
+
+set output "Relaxacao.pdf"
+splot "teste_relax.dat" matrix
+set output
+
+set output "Relaxacao_Mascara.pdf"
+splot "teste_mascara.dat" matrix
+set output

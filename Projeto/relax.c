@@ -31,12 +31,11 @@ void condContorno(double **M, int xdim, int ydim) {
 	
 	for(i=0; i<xdim; i++) {
 		M[i][0]=0;
-		M[i][ydim-1]=200;
+		M[i][ydim-1]=0;
 	}
-	
 	for(j=0; j<ydim; j++) {
-		M[0][j]=-200;
-		M[xdim-1][j]=0;
+		M[0][j]=0;
+		M[xdim-1][j]=1000;
 	}	
 	return;
 }
